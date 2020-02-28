@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_user
-  before_action :set_user_activity, only: [:show, :update, :destroy]
+  before_action :set_user_activity, only: %i[show update destroy]
 
   # GET /users/:user_id/activities
   def index
@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   # GET /users/:user_id/activities/:id
-  def show 
+  def show
     json_response(@activity)
   end
 
@@ -43,5 +43,4 @@ class ActivitiesController < ApplicationController
   def set_user_activity
     @activity = @user.activities.find_by!(id: params[:id]) if @user
   end
-
 end

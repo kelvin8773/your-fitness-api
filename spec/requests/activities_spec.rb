@@ -21,8 +21,8 @@ RSpec.describe 'Activities API', type: :request do
       end
     end
 
-    context 'when user does not exists' do 
-      let(:user_id) {0}
+    context 'when user does not exists' do
+      let(:user_id) { 0 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
@@ -32,7 +32,6 @@ RSpec.describe 'Activities API', type: :request do
         expect(response.body).to match(/Couldn't find User/)
       end
     end
-
   end
 
   # Test suit for GET /users/:user_id/activities/:id
@@ -63,7 +62,7 @@ RSpec.describe 'Activities API', type: :request do
 
   # Test suit for POST /users/:user_id/activities
   describe 'POST /users/:user_id/activities' do
-    let(:valid_attributes) { { kind: 'running', amount: 12 }}
+    let(:valid_attributes) { { kind: 'running', amount: 12 } }
 
     context 'when request attributes are valid' do
       before { post "/users/#{user_id}/activities", params: valid_attributes }
@@ -82,13 +81,13 @@ RSpec.describe 'Activities API', type: :request do
 
       it 'returns a failure message' do
         expect(response.body).to match(/Validation failed: Kind can't be blank./)
-      end  
+      end
     end
   end
 
   # Test suite for PUT /users/:user_id/activities/:id
   describe 'PUT /users/:user_id/activities/:id' do
-    let(:valid_attributes){ {kind: 'walking', amount: 6500 } }
+    let(:valid_attributes) { { kind: 'walking', amount: 6500 } }
 
     before { put "/users/#{user_id}/activities/#{id}", params: valid_attributes }
 
@@ -106,7 +105,7 @@ RSpec.describe 'Activities API', type: :request do
 
     context 'when the activity does not exists' do
       let(:id) { 0 }
-      
+
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
       end
@@ -119,11 +118,10 @@ RSpec.describe 'Activities API', type: :request do
 
   # Test suite for DELETE /users/:user_id/activities/:id
   describe 'DELETE /users/:user_id/activities/:id' do
-    before { delete "/users/#{user_id}/activities/#{id}" } 
+    before { delete "/users/#{user_id}/activities/#{id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
     end
   end
-
 end
