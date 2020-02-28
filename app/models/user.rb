@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :activities, dependent: :destroy
 
-  #validations
+  # validations
   validates_presence_of :name
 end
