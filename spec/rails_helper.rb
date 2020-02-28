@@ -1,15 +1,5 @@
-# frozen_string_literal: true
-
 # require database cleaner at the top level
 require 'database_cleaner'
-
-# configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
@@ -18,9 +8,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
-end
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -47,7 +35,12 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
 RSpec.configure do |config|
+  config.include RequestSpecHelper, type: :request
+
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
 
@@ -91,4 +84,12 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+# configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
