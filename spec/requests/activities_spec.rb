@@ -63,7 +63,7 @@ RSpec.describe 'Activities API', type: :request do
 
   # Test suit for POST /users/:user_id/activities
   describe 'POST /users/:user_id/activities' do
-    let(:valid_attributes) { { type: 'running', amount: 12 }}
+    let(:valid_attributes) { { kind: 'running', amount: 12 }}
 
     context 'when request attributes are valid' do
       before { post "/users/#{user_id}/activities", params: valid_attributes }
@@ -74,21 +74,21 @@ RSpec.describe 'Activities API', type: :request do
     end
 
     context 'when an invalid request' do
-      before { post "/users/#{user_id}/activities", params: {} }
+      before { post "/users/#{user_id}/activities", params: { amout: 4000 } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'returns a failure message' do
-        expect(response.body).to match(/Validation failed: Type can't be blank. Validation failed: Amount can't be blank./)
+        expect(response.body).to match(/Validation failed: Kind can't be blank./)
       end  
     end
   end
 
   # Test suite for PUT /users/:user_id/activities/:id
   describe 'PUT /users/:user_id/activities/:id' do
-    let(:valid_attributes){ {type: 'walking', amount: 6500 } }
+    let(:valid_attributes){ {kind: 'walking', amount: 6500 } }
 
     before { put "/users/#{user_id}/activities/#{id}", params: valid_attributes }
 
@@ -99,7 +99,7 @@ RSpec.describe 'Activities API', type: :request do
 
       it 'updates the activity' do
         updated_activity = Activity.find(id)
-        expect(updated_activity.type).to match(/walking/)
+        expect(updated_activity.kind).to match(/walking/)
         expect(updated_activity.amount).to eq(6500)
       end
     end
