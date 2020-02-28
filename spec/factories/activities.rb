@@ -8,6 +8,6 @@ FactoryBot.define do
       'swimming',
     ].sample }
     amount {Faker::Number.between(from: 1, to: 8000)}
-    user_id nil
+    user_id {nil}
   end
 end
