@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :activity do
-    type do
+    kind do
       %w[
         walking
         running
@@ -9,7 +9,7 @@ FactoryBot.define do
         swimming
       ].sample
     end
-    amount { Faker::Number.between(from: 1, to: 8000) }
+    amount { Faker::Number.between(from: 1, to: 10_000) }
     user_id { nil }
   end
 end
