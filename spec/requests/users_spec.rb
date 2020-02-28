@@ -46,7 +46,7 @@ RSpec.describe 'Users API', type: :request do
   end
 
   describe 'POST /Users' do
-    let(:valid_attributes) {{ name: 'Gregoire Vella', sex: 'male', age: 35 }}
+    let(:valid_attributes) {{ name: 'Gregoire Vella', sex: 'male', age: 36 }}
 
     context 'when the request is valid' do
       before { post '/users', params: valid_attributes }
@@ -61,15 +61,14 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when the request is invalid' do 
-      before { post '/users', params: {  } }
+      before { post '/users', params: { name: '', sex: 'female', age: 32 } }
 
       it 'return status code 422' do
         expect(response).to have_http_status(422)
       end
 
       it 'returns a validation failure message' do
-        expect(response.body)
-         .to match(/Validation failed: Name can't be empty./)
+        expect(response.body).to match(/Validation failed: Name can't be blank./)
       end
     end
   end
