@@ -1,5 +1,5 @@
 <h1 align="center">🕴️ Your Fitness API (backend) 🕴️</h1>
-<p align="center>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/kelvin8773/your-fitness" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -12,11 +12,20 @@
   </a>
 </p>
 
-> This is the backend project for Your-Fitness(Frontend), it provide the API interfaces Frontend needed.
+[![system-diagram](./docs/your-fitness-system.jpeg)](https://youfit.netlify.com)
+[![UI-User](./docs/your-fitness-ui-1.jpeg)](https://youfit.netlify.com)
+[![UI-Activity](./docs/your-fitness-ui-2.jpeg)](https://youfit.netlify.com)
 
-### 🏠 [Homepage](https://github.com/kelvin8773/your-fitness)
+> This is the backend repo for the full stack project - Your Fitness App.
 
 ### ✨ [Demo](https://youfit.netlify.com/)
+
+## Project Detail
+
+### Tech Stacks
+* Ruby On Rails
+* Postgre
+* Rspec
 
 ## Install
 

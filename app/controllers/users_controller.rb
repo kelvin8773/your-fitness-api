@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     # whitelist params
     params.permit(:name, :sex, :age)
