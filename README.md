@@ -12,13 +12,13 @@
   </a>
 </p>
 
-[![system-diagram](./docs/your-fitness-system.jpeg)](https://youfit.netlify.com)
-[![UI-User](./docs/your-fitness-ui-1.jpeg)](https://youfit.netlify.com)
-[![UI-Activity](./docs/your-fitness-ui-2.jpeg)](https://youfit.netlify.com)
+[![system-diagram](./docs/your-fitness-docs.002.jpeg)](https://youfit.netlify.com)
+[![Data-Diagram](./docs/your-fitness-docs.005.jpeg)](https://youfit.netlify.com)
+[![API-Examples](./docs/your-fitness-docs.006.jpeg)](https://youfit.netlify.com)
 
 > This is the backend repo for the full stack project - Your Fitness App.
 
-### ✨ [Demo](https://youfit.netlify.com/)
+### ✨ [FrontEnd Demo](https://youfit.netlify.com/)
 
 ## Project Detail
 
