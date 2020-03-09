@@ -27,19 +27,44 @@
 * Postgre
 * Rspec
 
-## Install
+### Current Features
+* CRUD for Users Model (get, post, put, delete);
+* CRUD for Activities Model (get, post, put, delete);
 
+### Planing Features
+* User Authentication
+* Add more models
+
+## Project Setup
+
+### Prerequisite
+* Ruby 2.6.3 or above;
+* Rails 6.0.2
+
+### Install
+
+> Install Necessary Packages.
 ```sh
 bundle install
 ```
 
-## Usage
+> Create Database.
+```sh
+rails db:migrate
+```
+
+> Add Sample Data.
+```sh
+rails db:seed
+```
+
+### Run Server
 
 ```sh
 rails server
 ```
 
-## Run tests
+### Run tests
 
 ```sh
 rspec
