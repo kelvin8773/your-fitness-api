@@ -30,7 +30,7 @@ User.all.each do |user|
     }
 
     kind = activities_units.keys.sample
-    amount = activities_units[kind] * rand(1..10)
+    amount = activities_units[kind] * rand(4..25)
     created_at = Faker::Time.between_dates(from: DateTime.now - 6, to: DateTime.now, period: :all, format: :default)
 
     Activity.create!(
